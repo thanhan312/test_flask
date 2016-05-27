@@ -2,7 +2,7 @@
 ### imports ###
 ###############
 
-from fabric.api import cd, env, lcd, put, prompt, local, sudo
+from fabric.api import cd, env, lcd, put, prompt, local, sudo, run
 from fabric.contrib.files import exists
 
 
@@ -54,7 +54,12 @@ def deploy():
     1. Copy new Flask files
     2. Restart gunicorn via supervisor
     """
-    with lcd(local_app_dir):
+    """
+    1. lcd = local cd (maybe :v)
+    2. cd = cd
+    """
+    with cd(remote_flask_dir):
+        run('git pull')
         sudo('supervisorctl restart test_flask')
 
 
