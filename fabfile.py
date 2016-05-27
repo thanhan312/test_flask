@@ -55,7 +55,7 @@ def deploy():
     2. Restart gunicorn via supervisor
     """
     with lcd(local_app_dir):
-        sudo('supervisorctl restart flask_project')
+        sudo('supervisorctl restart test_flask')
 
 
 def rollback():
@@ -65,8 +65,8 @@ def rollback():
     """
     with lcd(local_app_dir):
         local('git revert master  --no-edit')
-        local('git push production master')
-        sudo('supervisorctl restart flask_project')
+        local('git push origin master')
+        sudo('supervisorctl restart test_flask')
 
 
 def status():
