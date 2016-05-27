@@ -19,9 +19,12 @@ remote_flask_dir = remote_app_dir + '/test_flask'
 remote_nginx_dir = '/etc/nginx/sites-enabled'
 remote_supervisor_dir = '/etc/supervisor/conf.d'
 
-env.hosts = ['188.166.225.111']  # replace with IP address or hostname
-env.user = 'root'
+env.hosts = ['news']  # replace with IP address or hostname
+# env.user = 'user'
 # env.password = 'blah!'
+
+# use file ssh config detect server
+env.use_ssh_config = True
 
 
 #############
